@@ -1,37 +1,36 @@
 <template>
     <div class="lightbox" v-if="lightbox.visible">
-        <div class="fixed pin-r pin-t text-white cursor-pointer text-4xl p-1 mr-2" @click.stop="">&times;</div>
-            <div class="close" @click.stop="lightbox.hide">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
-            </div>
-            <div class="flex-column">
-                <div class="flex-column-grow">
-                    <div class="lightbox-image" @click.stop="">
-                        <img :src="images[lightbox.index].url">
-                    </div>
-                    <div class="urlText">{{images[lightbox.index].url}}</div>
-                </div>
-                <div class="lightbox-thumbnail">
-                    <div class="prev"
-                        @click.stop="lightbox.prev">
-                        <svg class="pointer-events-none" fill="#fff" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
-                            <path d="M0-.5h24v24H0z" fill="none"/>
-                        </svg>
-                    </div>
-                    <div class="photos">
-                        <img v-for="(image, index) in images" :key="image.id" :src="image.url" :alt="alt" loading="lazy" @click.stop="lightbox.show(index)">
-                    </div>
-                    <div class="next"
-                        @click.stop="lightbox.next">
-                        <svg class="pointer-events-none" fill="#fff" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
-                            <path d="M0-.25h24v24H0z" fill="none"/>
-                        </svg>
-                    </div>
-                </div><!-- thumbnail -->
-            </div>
+        <div class="close" @click.stop="lightbox.hide">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
         </div>
+        <div class="flex-column">
+            <div class="flex-column-grow">
+                <div class="lightbox-image" @click.stop="">
+                    <img :src="images[lightbox.index].url">
+                </div>
+                <div class="urlText">{{images[lightbox.index].url}}</div>
+            </div>
+            <div class="lightbox-thumbnail">
+                <div class="prev"
+                    @click.stop="lightbox.prev">
+                    <svg class="pointer-events-none" fill="#fff" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                        <path d="M0-.5h24v24H0z" fill="none"/>
+                    </svg>
+                </div>
+                <div class="photos">
+                    <img v-for="(image, index) in images" :key="image.id" :src="image.url" :alt="alt" loading="lazy" @click.stop="lightbox.show(index)">
+                </div>
+                <div class="next"
+                    @click.stop="lightbox.next">
+                    <svg class="pointer-events-none" fill="#fff" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                        <path d="M0-.25h24v24H0z" fill="none"/>
+                    </svg>
+                </div>
+            </div><!-- thumbnail -->
+        </div>
+    </div>
 </template>
 
 <script>
@@ -67,7 +66,7 @@ export default {
     display: inline-flex;
 }
 .lightbox .close{
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 0;
     top: 0;
